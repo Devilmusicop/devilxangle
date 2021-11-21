@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (C) @subinps
+# Copyright (C) devilmusicop
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -191,7 +191,7 @@ async def set_mute(_, m: Message):
         return
     k=await mute()
     if k:
-        k = await m.reply_text(f" 🔇 Succesfully Muted ")
+        k = await m.reply_text(f" 🔇 Succesfully fucked ")
         await delete_messages([m, k])
     else:
         k = await m.reply_text("Already muted.")
@@ -213,11 +213,11 @@ async def set_unmute(_, m: Message):
         return
     k=await unmute()
     if k:
-        k = await m.reply_text(f"🔊 Succesfully Unmuted ")
+        k = await m.reply_text(f"🔊 Succesfully Unfucked. ")
         await delete_messages([m, k])
         return
     else:
-        k=await m.reply_text("Not muted, already unmuted.")    
+        k=await m.reply_text("Not muted, already unfucked.")    
         await delete_messages([m, k])
 
 
@@ -232,12 +232,12 @@ async def replay_playout(client, m: Message):
         )
         await delete_messages([m])
         return
-    await msg.edit(f"Replaying from begining")
+    await msg.edit(r"Replaying from begining")
     await restart_playout()
     await delete_messages([m, msg])
 
 
-@Client.on_message(filters.command(["player", f"player@{Config.BOT_USERNAME}"]) & chat_filter)
+@Client.on_message(filters.command(["player", r"player@{Config.BOT_USERNAME}"]) & chat_filter)
 async def show_player(client, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
@@ -279,7 +279,7 @@ async def show_player(client, m: Message):
 async def seek_playout(client, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
-            "Player is idle, start the player using below button. ㅤㅤㅤ ㅤㅤ",
+            "devilPlayer is idle, start the player using below button. ㅤㅤㅤ ㅤㅤ",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
